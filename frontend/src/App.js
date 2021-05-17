@@ -2,6 +2,10 @@ import logo from './logo.svg';
 import react from 'react';
 import data from './data';
 import './App.css';
+import { BrowserRouter, Route, Link } from 'react-router-dom'; 
+import HomeScreen from './Screens/HomeScreen';
+import ProductScreen from './Screens/ProductScreen';
+
 
 function App() {
   const openMenu = () =>{
@@ -12,6 +16,8 @@ function App() {
     document.querySelector(".sidebar").classList.remove("open");
   }
   return (
+    <BrowserRouter>
+
     <div class="grid-container">
 
         <header class="header">
@@ -19,8 +25,7 @@ function App() {
                 <button onClick={openMenu}>
                     &#9776;
                 </button>
-
-                <a href="index.html">Bijueira's</a>
+                <Link to='/'>Bijueira's</Link>
             </div>
             <div class="header-links">
                 <a href="cart.html"><img class="cart-icon" src="../images/cart.png"></img></a>
@@ -40,22 +45,12 @@ function App() {
 
         <main class="main">
             <div class="content">
-                <ul class="products"> 
-                  {
-                    data.products.map(product =>
-                      <li>
-                        <div class="product">
-                            <img class="product-img" src={product.image} alt="product"></img>
-                             <a href="product.html"><div class="product-name">{product.name}</div></a>
-                            <div class="product-price">R$ {product.price}</div>
-                            <div class="product-rating">{product.rating} estrelas ({product.numReviews} Avaliações)</div>
-                        </div>
-                    </li>
-                      )
-                  }
-                </ul>
-
+              <Route path="/product/:id" component={ProductScreen}></Route>
+              <Route path="/" exact={true} component={HomeScreen}></Route>
+                
+    
             </div>
+            
         </main>
 
 
@@ -64,6 +59,8 @@ function App() {
         </footer>
 
     </div>
+
+    </BrowserRouter>
     
   );
 }
