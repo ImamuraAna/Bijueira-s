@@ -30,7 +30,7 @@ function App() {
             <div class="header-links">
                 <a href="cart.html"><img class="cart-icon" src="../images/cart.png"></img></a>
                   |
-                <a href="singin.html"> Sing In</a>
+                <a href="singin.html"> Entrar</a>
             </div>
         </header>
 
@@ -55,7 +55,7 @@ function App() {
 
 
         <footer class="footer">
-            All right reserved.
+            Todos os direitos reservados.
         </footer>
 
     </div>
